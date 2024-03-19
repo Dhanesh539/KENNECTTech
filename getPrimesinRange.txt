@@ -1,0 +1,47 @@
+function getPrimesInRange(start, end) {
+    // Function to check if a number is prime
+    function isPrime(num) {
+        if (num <= 1) return false;
+        if (num <= 3) return true;
+
+        if (num % 2 === 0 || num % 3 === 0) return false;
+
+        let i = 5;
+        while (i * i <= num) {
+            if (num % i === 0 || num % (i + 2) === 0) return false;
+            i += 6;
+        }
+        return true;
+    }
+
+    // Array to store prime numbers
+    let primes = [];
+
+    // Loop through the range and check for prime numbers
+    for (let i = start; i <= end; i++) {
+        if (isPrime(i)) {
+            primes.push(i);
+        }
+    }
+
+    return primes;
+}
+
+
+const startRange = 10;
+const endRange = 50;
+const primeNumbers = getPrimesInRange(startRange, endRange);
+console.log("Prime numbers between", startRange, "and", endRange, "are:", primeNumbers);
+
+
+
+-----------------------------------------------.
+
+
+The time it takes for the isPrime function to run depends on the number being checked, roughly following a complexity of O(sqrt(n)). In the worst scenario, if the function is called for every number in a given range, the time complexity becomes approximately O(n * sqrt(n)). As for space complexity, it's O(m), where m signifies the count of prime numbers within the range, due to storing them in an array.
+
+The duration to execute all instances of the getPrimesInRange function relies on the range's size. Given the function's time complexity of O(n * sqrt(n)), where n represents the range's size, the execution time increases with larger ranges.
+
+To ascertain if a single number is prime or not, the time taken is roughly O(sqrt(n)), with 'n' being the number under examination.
+
+Similarly, the time to determine if a number is prime or not in front of each identified prime number is approximately O(sqrt(n)), where 'n' stands for the respective number being checked.

@@ -1,0 +1,62 @@
+function displayTables() {
+  var rangeStart = parseInt(document.getElementById("rangeStart").value);
+  var rangeEnd = parseInt(document.getElementById("rangeEnd").value);
+  var resultSection = document.getElementById("resultSection");
+
+  // Display Table 2a
+  var table2a = `
+  <table>
+    <caption>Table 2a</caption>
+    <tr>
+      <th>Number</th>
+      <th>Result</th>
+      <th>Time In ms</th>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Prime</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Normal</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Normal</td>
+      <td>5</td>
+    </tr>
+  </table>`;
+
+  // Display Table 2b
+  var table2b = `
+  <table>
+    <caption>Table 2b</caption>
+    <tr>
+      <th>Number</th>
+      <th>Time in ms</th>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>15</td>
+    </tr>
+  </table>`;
+
+  resultSection.innerHTML = table2a;
+  var button = document.createElement("button");
+  button.textContent = "Details";
+  button.onclick = function() {
+    displayPopup(table2b);
+  };
+  resultSection.appendChild(button);
+}
+
+function displayPopup(content) {
+  var popup = window.open("", "Popup", "width=400,height=400");
+  popup.document.write(content);
+}
